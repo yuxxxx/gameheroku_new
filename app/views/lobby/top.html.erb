@@ -86,9 +86,6 @@
         visitorlist_load();
         visitorlist_interval=setInterval(visitorlist_load , 20000);
         }));
-      $(document).on('page:change',(function() {
-        clearInterval(visitorlist_interval);
-      }));
     </script>
   </body>
 </html>
