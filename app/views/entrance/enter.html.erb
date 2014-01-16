@@ -47,7 +47,7 @@
     <ul style="list-style:none">
       <%= form_tag("entrance/namewriter/", :method => :post) do %>
         <li style="float:left">名前</li>
-        <li style="float:left"><%= text_field_tag :name_prm %></li>
+        <li style="float:left"><%= text_field_tag :name_prm , :required => true %></li>
         <li style="float:left"><%= submit_tag('入場') %></li>
       <% end %>
     </ul>

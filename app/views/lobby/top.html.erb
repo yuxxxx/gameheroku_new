@@ -81,7 +81,7 @@
       var visitorlist_interval;
       $(document).on("ready page:load", (function () {
         $("#visitorlist").load("/lobby/visitor_update");
-        visitorlist_interval=setInterval(function(){$("#visitorlist").load("/lobby/visitor_update");}, 20000);
+        visitorlist_interval=setInterval((function(){$("#visitorlist").load("/lobby/visitor_update"));}, 20000);
         }));
       $(document).on('page:change',(function() {
         clearInterval(visitorlist_interval);
