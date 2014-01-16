@@ -1,4 +1,12 @@
 Gameheroku::Application.routes.draw do
+
+	root "entrance#enter"
+	post "/entrance/namewriter(/:name_prm)" , :to=> "entrance#namewriter"
+	get "/lobby/top" , :to=> "lobby#top"
+	get "/lobby/visitor_update" , :to=> "lobby#visitor_update"
+	#post "/chat/create_chatroom(/:room)" , :to=> "chat#create_chatroom"
+	#post "/chat/reader(/:room)" , :to=> "chat#reader"
+	#post "/chat/writer(/:room(/:post_content))" , :to=> "chat#writer"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

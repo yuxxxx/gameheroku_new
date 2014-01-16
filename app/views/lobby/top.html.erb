@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+  
+  <head data-gwd-animation-mode="quickMode">
+    <title>lobby</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Google Web Designer 1.0.2.1210">
+    <style type="text/css">
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+      }
+      body {
+        background-color: transparent;
+        -webkit-transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+        -webkit-transform-style: preserve-3d;
+      }
+      .gwd-div-yjm7 {
+        position: absolute;
+        width: 320px;
+        font-family:'Times New Roman';
+        text-align: left;
+        height: 100px;
+        top: 0px;
+        left: 354px;
+      }
+      .gwd-div-1x5d {
+        text-align: center;
+      }
+      .gwd-span-pevg {
+        font-size: 80px;
+      }
+      .gwd-div-r008 {
+        position: absolute;
+        width: 200px;
+        height: 600px;
+        top: 100px;
+        left: 828px;
+      }
+      .gwd-div-abzy {
+        position: absolute;
+        width: 674px;
+        height: 30px;
+        font-family:'Times New Roman';
+        text-align: left;
+        color: rgb(0, 0, 0);
+        top: 100px;
+        left: 0px;
+      }
+      .gwd-div-zxam {
+        position: absolute;
+        top: 130px;
+        height: 160px;
+        width: 673px;
+        left: 0px;
+      }
+      .gwd-div-gd2e {
+        position: absolute;
+        width: 673px;
+        top: 291px;
+        height: 409px;
+        left: 0px;
+      }
+    </style>
+  </head> 
+  <body>
+    <div class="gwd-div-yjm7 editable">
+      <div class="gwd-div-1x5d"><span class="gwd-span-pevg">ロビー</span>
+        <br>
+      </div>
+    </div>
+    <div class="gwd-div-r008" id="visitorlist"></div>
+    <div class="gwd-div-abzy" id="chatwrite">
+      This is only displaying visitors'name.
+    </div>
+    <div class="gwd-div-zxam" id="chatread"></div>
+    <div class="gwd-div-gd2e" id="roomlist"></div>
+    <%= render :partial => "/partial/jquery_src" %>
+    <script type="text/javascript">
+      var visitorlist_interval;
+      $(document).on("ready page:load", (function () {
+        $("#visitorlist").load("/lobby/visitor_update");
+        visitorlist_interval=setInterval(function(){$("#visitorlist").load("/lobby/visitor_update");}, 20000);
+        }));
+      $(document).on('page:change',(function() {
+        clearInterval(visitorlist_interval);
+      }));
+    </script>
+  </body>
+</html>
