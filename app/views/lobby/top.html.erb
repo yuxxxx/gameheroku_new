@@ -25,18 +25,13 @@
         top: 0px;
         left: 354px;
       }
-      .gwd-div-1x5d {
-        text-align: center;
-      }
-      .gwd-span-pevg {
-        font-size: 80px;
-      }
       .gwd-div-r008 {
         position: absolute;
         width: 200px;
-        height: 600px;
+        height: 639px;
         top: 100px;
         left: 828px;
+        overflow: scroll;
       }
       .gwd-div-abzy {
         position: absolute;
@@ -54,6 +49,7 @@
         height: 160px;
         width: 673px;
         left: 0px;
+        overflow: scroll;
       }
       .gwd-div-gd2e {
         position: absolute;
@@ -61,6 +57,7 @@
         top: 330px;
         height: 409px;
         left: 0px;
+        overflow: scroll;
       }
     </style>
   </head> 
@@ -75,7 +72,7 @@
       <%= render :partial => "/partial/chatwrite_form" ,:locals => {:room_local => "lobby"} %>
     </div>
     <div class="gwd-div-zxam" id="chatread"></div>
-    <div class="gwd-div-gd2e" id="roomlist"></div>
+    <div class="gwd-div-gd2e" id="roomlist">here will display game-room list</div>
     <%= render :partial => "/partial/jquery_src" %>
     <script type="text/javascript">
       function visitorlist_load(){

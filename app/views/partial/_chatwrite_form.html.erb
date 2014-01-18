@@ -1,7 +1,7 @@
 ﻿<%= render :partial => "/partial/jquery_src" %>
 <%= form_tag("/chat/writer", :method => :post , :remote => true , :id => "form_tag_id" ) do %>
 	<%= text_field_tag :room_prm , room_local  ,:style => "position:absolute;visibility:hidden"%>
-	<%= text_field_tag :content_prm ,"",:required => true, :id=>"form_content_id"%>
+	<%= text_field_tag :content_prm ,"",:required => true, :id=>"form_content_id",:maxlength=>70%>
 	<%= submit_tag("送信") %>
 <% end %>
 
