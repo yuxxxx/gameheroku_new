@@ -1,4 +1,4 @@
-require "date"
+﻿require "date"
 require "active_support"
 
 class LobbyController < ApplicationController

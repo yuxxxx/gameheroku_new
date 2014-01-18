@@ -1,0 +1,15 @@
+﻿<%= render :partial => "/partial/jquery_src" %>
+<%= form_tag("/chat/writer", :method => :post , :remote => true , :id => "form_tag_id" ) do %>
+	<%= text_field_tag :room_prm , room_local  ,:style => "position:absolute;visibility:hidden"%>
+	<%= text_field_tag :content_prm ,"",:required => true, :id=>"form_content_id"%>
+	<%= submit_tag("送信") %>
+<% end %>
+
+<script>
+$(document).on("ready page:load", (function () {
+  $("#form_tag_id").bind("ajax:complete", (function(event,xhr,status){
+    $('#form_content_id').val('');
+    return true;
+  }));
+}));
+</script>

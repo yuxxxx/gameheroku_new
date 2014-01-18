@@ -1,0 +1,4 @@
+﻿<% @chatlog_local.reverse_each do |log| %>
+name:<%=log.name%>	time:<%=log.spoken_time%><br>
+<%=log.content%><br>
+<% end %>

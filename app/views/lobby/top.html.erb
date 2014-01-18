@@ -50,7 +50,7 @@
       }
       .gwd-div-zxam {
         position: absolute;
-        top: 130px;
+        top: 150px;
         height: 160px;
         width: 673px;
         left: 0px;
@@ -58,7 +58,7 @@
       .gwd-div-gd2e {
         position: absolute;
         width: 673px;
-        top: 291px;
+        top: 330px;
         height: 409px;
         left: 0px;
       }
@@ -72,19 +72,23 @@
     </div>
     <div class="gwd-div-r008" id="visitorlist"></div>
     <div class="gwd-div-abzy" id="chatwrite">
-      This is only displaying visitors'name.
+      <%= render :partial => "/partial/chatwrite_form" ,:locals => {:room_local => "lobby"} %>
     </div>
     <div class="gwd-div-zxam" id="chatread"></div>
     <div class="gwd-div-gd2e" id="roomlist"></div>
     <%= render :partial => "/partial/jquery_src" %>
     <script type="text/javascript">
-      var visitorlist_interval;
       function visitorlist_load(){
         $("#visitorlist").load("/lobby/visitor_update");
       }
+      function chatread_load(){
+        $("#chatread").load("/chat/reader",{room_prm:"lobby"});
+      }
       $(document).on("ready page:load", (function () {
         visitorlist_load();
-        visitorlist_interval=setInterval(visitorlist_load , 20000);
+        setInterval(visitorlist_load , 20000);
+        chatread_load();
+        setInterval(chatread_load , 10000);
         }));
     </script>
   </body>

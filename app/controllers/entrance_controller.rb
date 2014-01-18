@@ -1,4 +1,4 @@
-require "date"
+﻿require "date"
 class EntranceController < ApplicationController
 	def enter
 	end
