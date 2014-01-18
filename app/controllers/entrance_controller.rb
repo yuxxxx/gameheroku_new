@@ -10,6 +10,7 @@ class EntranceController < ApplicationController
 		visitor.name=visitor_name
 		visitor.lasttime=DateTime.now
 		visitor.ip = cliant_ip
+		visitor.place="lobby"
 		visitor.save
 	end
 end
