@@ -1,8 +1,12 @@
-﻿require "date"
+require "date"
 require "active_support"
 
 class LobbyController < ApplicationController
 	def top
+		cliant_ip=request.env["HTTP_X_FORWARDED_FOR"] || request.remote_ip
+		mydata=Visitor.find_by_ip(cliant_ip)
+		mydata.place="lobby"
+		mydata.save
 		@chat_location="lobby"
 	end
 	def visitor_update

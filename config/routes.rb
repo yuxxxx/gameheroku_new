@@ -1,4 +1,4 @@
-Gameheroku::Application.routes.draw do
+﻿Gameheroku::Application.routes.draw do
 
 	root "entrance#enter"
 	post "/entrance/namewriter(/:name_prm)" , :to=> "entrance#namewriter"
@@ -6,6 +6,10 @@ Gameheroku::Application.routes.draw do
 	get "/lobby/visitor_update" , :to=> "lobby#visitor_update"
 	post "/chat/reader(/:room_prm)" , :to=> "chat#reader"
 	post "/chat/writer(/:room_prm(/:content_prm))" , :to=> "chat#writer"
+	get "/gameroom/top(/:room_prm)" , :to=> "gameroom#top"
+	post "/gameroom/room_visitorlist(/:room_prm)" , :to=> "gameroom#room_visitorlist"
+	post "/gameroom/room_creater(/:room_prm)" , :to=> "gameroom#room_creater"
+	get "/gameroom/room_destroyer" , :to=> "gameroom#room_destroyer"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

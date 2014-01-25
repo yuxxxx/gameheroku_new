@@ -232,3 +232,4 @@ pip-log.txt
 /log/*.log
 /tmp
 >>>>>>> 6b685019ec92560138ccaeaf9448485349d006c1
+/nbproject/private/

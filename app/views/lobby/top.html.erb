@@ -63,13 +63,31 @@
         left: 0px;
         overflow: scroll;
       }
+      .gwd-div-room {
+        position: absolute;
+        width: 320px;
+        height: 100px;
+        left: 675px;
+        top: 0px;
+      
     </style>
   </head> 
   <body>
+  <%= render :partial => "/partial/jquery_src" %>
     <div class="gwd-div-yjm7 editable">
       <div class="gwd-div-1x5d"><span class="gwd-span-pevg">ロビー</span>
         <br>
       </div>
+    </div>
+    <div class="gwd-div-room" id="room_enter_div">
+      <ul style="list-style:none">
+        <%= form_tag("/gameroom/room_creater", :method => :post, :remote => true ) do %>
+          <li style="float:left">部屋作成</li>
+          <li style="float:left"><%= text_field_tag :room_prm ,nil,:required => true, :maxlength => 15%></li>
+          <li style="float:left"><%= submit_tag("作成") %></li>
+          <li id="room_make_error_li"style="float:left"></li>
+        <% end %>
+      </ul>
     </div>
     <div class="gwd-div-r008" id="visitorlist"></div>
     <div class="gwd-div-abzy" id="chatwrite">
@@ -77,20 +95,28 @@
     </div>
     <div class="gwd-div-zxam" id="chatread"></div>
     <div class="gwd-div-gd2e" id="roomlist">here will display game-room list</div>
-    <%= render :partial => "/partial/jquery_src" %>
+    <div id="room_destroyer_div" style="display:none"></div>
     <script type="text/javascript">
+      var chatread_i;
+      var visit_i;
+      var room_des_i;
       function visitorlist_load(){
         $("#visitorlist").load("/lobby/visitor_update");
       }
       function chatread_load(){
         $("#chatread").load("/chat/reader",{room_prm:"lobby"});
       }
+      function room_des_load(){
+        $("#room_destroyer_div").load("/gameroom/room_destroyer");
+      }
       $(document).on("ready page:load", (function () {
         visitorlist_load();
-        setInterval(visitorlist_load , 20000);
+        visit_i=setInterval(visitorlist_load , 20000);
         chatread_load();
-        setInterval(chatread_load , 10000);
-        }));
+        chatread_i=setInterval(chatread_load , 10000);
+        room_des_load();
+        room_des_i=setInterval(room_des_load , 20000);
+      }));
     </script>
   </body>
 </html>

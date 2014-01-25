@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118023240) do
+ActiveRecord::Schema.define(version: 20140120063441) do
 
   create_table "chatlogs", force: true do |t|
     t.string   "name"
     t.string   "content"
     t.string   "place"
     t.datetime "spoken_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roomdata", force: true do |t|
+    t.string   "place"
+    t.string   "dataname"
+    t.string   "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

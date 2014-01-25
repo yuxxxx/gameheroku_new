@@ -1,0 +1,9 @@
+﻿<% if @exist_flag then %>
+	$("#room_make_error_li").text("もうその部屋は存在しています。");
+<% else %>
+	<% def url
+		Javascript::Application.routes.url_helpers
+	end
+	%>
+	window.location.replace('<%= url.gameroom_top_path(room_prm: @roomname) %>');
+<% end %>
